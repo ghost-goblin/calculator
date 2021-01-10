@@ -1,11 +1,13 @@
 const buttons = document.querySelectorAll('button');
 const display = document.querySelector('.display');
 const clear = document.querySelector('.ac');
+const equals = document.querySelector('.equal-sign');
 
-let a = null;
-let b = null;
-let operator = null;
 
+
+const clearDisplay = () => {
+    display.innerText = '';
+};
 
 
 // Operate Functions
@@ -27,16 +29,25 @@ function divide(a, b) {
 
 // Event Listener
 buttons.forEach((button => {
-    button.addEventListener('click', getValues);
+    button.addEventListener('click', calculate);
 }));
 
-function getValues(e) {
-    currentValue = e.target.getAttribute('value');
-    display.innerText += currentValue;
-    if (currentValue === 'ac') {
-        display.innerText = '';
+function calculate(e) {
+    displayValue = e.target.getAttribute('value');
+    display.innerText += displayValue;
+    displayedNum = display.textContent;
+    console.log(displayedNum);
+    // Clear the display ....
+    if (displayValue === 'ac') {
+        clearDisplay();
     };
 };
+
+equals.addEventListener('click', function() {
+    equals.value = display.textContent;
+    console.log(equals.value);
+});
+
 
 // Operate Function
 function operate(a, b, operator) {
@@ -61,5 +72,3 @@ function operate(a, b, operator) {
             console.log('IDK...');
     };
 };
-
-// operate(5, 5, '+');
