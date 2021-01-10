@@ -1,5 +1,12 @@
 const buttons = document.querySelectorAll('button');
 const display = document.querySelector('.display');
+const clear = document.querySelector('.ac');
+
+let a = null;
+let b = null;
+let operator = null;
+
+
 
 // Operate Functions
 function add(a, b) {
@@ -20,13 +27,15 @@ function divide(a, b) {
 
 // Event Listener
 buttons.forEach((button => {
-    button.addEventListener('click', getValue);
+    button.addEventListener('click', getValues);
 }));
 
-function getValue(e) {
-    num1 =  e.target.getAttribute('value');
-    console.log(num1);
-
+function getValues(e) {
+    currentValue = e.target.getAttribute('value');
+    display.innerText += currentValue;
+    if (currentValue === 'ac') {
+        display.innerText = '';
+    };
 };
 
 // Operate Function
@@ -53,4 +62,4 @@ function operate(a, b, operator) {
     };
 };
 
-operate(5, 5, '+');
+// operate(5, 5, '+');
