@@ -42,7 +42,6 @@
     background-color: transparent;
     font-size: 3.5rem;
     color: #fff;
-    background-image: linear-gradient(to bottom,transparent,transparent 50%,rgba(0,0,0,.04));
   }
   
   button:hover {
@@ -53,12 +52,12 @@
     color: #337cac;
   }
   
-  .all-clear {
+  .ac {
     background-color: #f0595f;
     color: #fff;
   }
   
-  .all-clear:hover {
+  .ac:hover {
     background-color: #f17377;
   }
   
