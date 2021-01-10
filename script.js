@@ -1,4 +1,5 @@
 const buttons = document.querySelectorAll('button');
+const display = document.querySelector('.display');
 
 // Operate Functions
 function add(a, b) {
@@ -17,24 +18,39 @@ function divide(a, b) {
     return (a / b);
 };
 
-
-
+// Event Listener
 buttons.forEach((button => {
-    button.addEventListener('click', operate);
+    button.addEventListener('click', getValue);
 }));
 
-function operate(e) {
-    operator = e.target.getAttribute('value');
-    a = 4;
-    b = 5;
+function getValue(e) {
+    num1 =  e.target.getAttribute('value');
+    console.log(num1);
+
+};
+
+// Operate Function
+function operate(a, b, operator) {
     switch (operator) {
         case '+':
             result = add(a, b);
             console.log(result);
             break;
         case '-':
-            console.log('minus');
+            result = subtract(a, b);
+            console.log(result);
             break;
-
+        case '*':
+            result = multiply(a, b);
+            console.log(result);
+            break;
+        case '/':
+            result = divide(a, b);
+            console.log(result);
+            break;
+        default:
+            console.log('IDK...');
     };
 };
+
+operate(5, 5, '+');
