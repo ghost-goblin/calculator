@@ -4,9 +4,9 @@ const clear = document.querySelector('.ac');
 const equals = document.querySelector('.equal-sign');
 
 
-
 const clearDisplay = () => {
     display.innerText = '';
+    equals.value = '';
 };
 
 
@@ -30,22 +30,25 @@ function divide(a, b) {
 // Event Listener
 buttons.forEach((button => {
     button.addEventListener('click', calculate);
+    // console.log(button.className);
 }));
 
 function calculate(e) {
-    displayValue = e.target.getAttribute('value');
-    display.innerText += displayValue;
-    displayedNum = display.textContent;
-    console.log(displayedNum);
+    if ((e.target.className !== 'operator') && (e.target.getAttribute('value') !== '=')) {
+        displayValue = e.target.getAttribute('value');
+        display.innerText += displayValue;
+    };
     // Clear the display ....
     if (displayValue === 'ac') {
         clearDisplay();
     };
+    return a = parseInt(display.textContent);
 };
-
-equals.addEventListener('click', function() {
+ 
+equals.addEventListener('click', function () {
     equals.value = display.textContent;
-    console.log(equals.value);
+    console.log(a);
+    operate(a, Number(equals.value), '+');
 });
 
 
