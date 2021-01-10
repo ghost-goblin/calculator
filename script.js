@@ -2,7 +2,7 @@ const buttons = document.querySelectorAll('button');
 const display = document.querySelector('.display');
 const clear = document.querySelector('.ac');
 const equals = document.querySelector('.equal-sign');
-
+// const operators = document.querySelectorAll('.operator');
 
 const clearDisplay = () => {
     display.innerText = '';
@@ -27,7 +27,7 @@ function divide(a, b) {
     return (a / b);
 };
 
-// Event Listener
+// Event Listeners
 buttons.forEach((button => {
     button.addEventListener('click', calculate);
     // console.log(button.className);
@@ -38,17 +38,26 @@ function calculate(e) {
         displayValue = e.target.getAttribute('value');
         display.innerText += displayValue;
     };
-    // Clear the display ....
+    // Clear the Display ...
     if (displayValue === 'ac') {
         clearDisplay();
     };
     return a = parseInt(display.textContent);
 };
- 
+
+// Get Operator Value ...
+buttons.forEach((button => {
+    button.addEventListener('click', function() {
+        if (button.className === 'operator') {
+            return operator = button.value;
+        };
+    });
+}));
+
+// Get Result ...
 equals.addEventListener('click', function () {
     equals.value = display.textContent;
-    console.log(a);
-    operate(a, Number(equals.value), '+');
+    operate(a, Number(equals.value), operator);
 });
 
 
