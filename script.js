@@ -2,7 +2,6 @@ const buttons = document.querySelectorAll('button');
 const display = document.querySelector('.display');
 const clear = document.querySelector('.ac');
 const equals = document.querySelector('.equal-sign');
-// const operators = document.querySelectorAll('.operator');
 
 const clearDisplay = () => {
     display.textContent = '';
@@ -42,23 +41,27 @@ function calculate(e) {
     if (displayValue === 'ac') {
         clearDisplay();
     };
-    return a = parseInt(display.textContent);
+    a = parseInt(display.textContent);
 };
 
 // Get Operator & Operands Value/s ...
 buttons.forEach((button => {
     button.addEventListener('click', function() {
+        console.log(button.value);
         if (button.className === 'operator') {
-            return operator = button.value;
+            display.textContent = '';
+            operator = button.value;
         };
     });
 }));
 
+
 // Get Result ...
 equals.addEventListener('click', function () {
     equals.value = display.textContent;
-    // operate(a, b, operator);
-    operate(a, Number(equals.value), operator);
+    b = parseInt(display.textContent);
+    operate(a, b, operator);
+    // operate(a, Number(equals.value), operator);
 });
 
 
