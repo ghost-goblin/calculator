@@ -29,28 +29,30 @@ function divide(a, b) {
 // Event Listeners
 buttons.forEach((button => {
     button.addEventListener('click', calculate);
-    // console.log(button.className);
 }));
 
 function calculate(e) {
     if ((e.target.className !== 'operator') && (e.target.getAttribute('value') !== '=')) {
         displayValue = e.target.getAttribute('value');
-        display.innerText += displayValue;     
+        display.textContent += displayValue;     
     };
     // Clear the Display ...
     if (displayValue === 'ac') {
         clearDisplay();
     };
     a = parseInt(display.textContent);
+    console.log(a);
 };
 
 // Get Operator & Operands Value/s ...
 buttons.forEach((button => {
     button.addEventListener('click', function() {
-        console.log(button.value);
         if (button.className === 'operator') {
+            b = parseInt(display.textContent);
+            console.log(b);
             display.textContent = '';
             operator = button.value;
+            console.log(operator);
         };
     });
 }));
@@ -58,10 +60,7 @@ buttons.forEach((button => {
 
 // Get Result ...
 equals.addEventListener('click', function () {
-    equals.value = display.textContent;
-    b = parseInt(display.textContent);
     operate(a, b, operator);
-    // operate(a, Number(equals.value), operator);
 });
 
 
@@ -87,4 +86,5 @@ function operate(a, b, operator) {
         default:
             console.log('IDK...');
     };
+    console.log(result);
 };
