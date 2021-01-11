@@ -5,7 +5,7 @@ const equals = document.querySelector('.equal-sign');
 // const operators = document.querySelectorAll('.operator');
 
 const clearDisplay = () => {
-    display.innerText = '';
+    display.textContent = '';
     equals.value = '';
 };
 
@@ -36,7 +36,7 @@ buttons.forEach((button => {
 function calculate(e) {
     if ((e.target.className !== 'operator') && (e.target.getAttribute('value') !== '=')) {
         displayValue = e.target.getAttribute('value');
-        display.innerText += displayValue;
+        display.innerText += displayValue;     
     };
     // Clear the Display ...
     if (displayValue === 'ac') {
@@ -45,7 +45,7 @@ function calculate(e) {
     return a = parseInt(display.textContent);
 };
 
-// Get Operator Value ...
+// Get Operator & Operands Value/s ...
 buttons.forEach((button => {
     button.addEventListener('click', function() {
         if (button.className === 'operator') {
@@ -57,6 +57,7 @@ buttons.forEach((button => {
 // Get Result ...
 equals.addEventListener('click', function () {
     equals.value = display.textContent;
+    // operate(a, b, operator);
     operate(a, Number(equals.value), operator);
 });
 
@@ -66,19 +67,19 @@ function operate(a, b, operator) {
     switch (operator) {
         case '+':
             result = add(a, b);
-            console.log(result);
+            display.innerText = result;
             break;
         case '-':
             result = subtract(a, b);
-            console.log(result);
+            display.innerText = result;
             break;
         case '*':
             result = multiply(a, b);
-            console.log(result);
+            display.innerText = result;
             break;
         case '/':
             result = divide(a, b);
-            console.log(result);
+            display.innerText = result;
             break;
         default:
             console.log('IDK...');
