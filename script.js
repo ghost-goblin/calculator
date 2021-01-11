@@ -15,7 +15,7 @@ function add(a, b) {
 };
 
 function subtract(a, b) {
-    return a - b;
+    return (a - b);
 };
 
 function multiply(a, b) {
@@ -72,7 +72,7 @@ function operate(a, b, operator) {
             display.innerText = result;
             break;
         case '-':
-            result = subtract(a, b);
+            result = subtract(a, b) * -1;
             display.innerText = result;
             break;
         case '*':
