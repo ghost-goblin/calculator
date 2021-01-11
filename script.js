@@ -40,19 +40,15 @@ function calculate(e) {
     if (displayValue === 'ac') {
         clearDisplay();
     };
-    a = parseInt(display.textContent);
-    console.log(a);
 };
 
 // Get Operator & Operands Value/s ...
 buttons.forEach((button => {
     button.addEventListener('click', function() {
         if (button.className === 'operator') {
-            b = parseInt(display.textContent);
-            console.log(b);
+            a = Number(display.textContent);
             display.textContent = '';
             operator = button.value;
-            console.log(operator);
         };
     });
 }));
@@ -60,6 +56,12 @@ buttons.forEach((button => {
 
 // Get Result ...
 equals.addEventListener('click', function () {
+    b = Number(display.textContent);
+    console.log('*********************************************************************');
+    console.log(a);
+    console.log(b);
+    console.log(operator);
+    console.log('*********************************************************************');
     operate(a, b, operator);
 });
 
@@ -72,7 +74,7 @@ function operate(a, b, operator) {
             display.innerText = result;
             break;
         case '-':
-            result = subtract(a, b) * -1;
+            result = subtract(a, b);
             display.innerText = result;
             break;
         case '*':
