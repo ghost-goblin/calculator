@@ -5,8 +5,8 @@ const equals = document.querySelector('.equal-sign');
 
 const clearDisplay = () => {
     display.textContent = '';
-    equals.value = '';
 };
+
 
 
 // Operate Functions
@@ -34,7 +34,7 @@ buttons.forEach((button => {
 function calculate(e) {
     if ((e.target.className !== 'operator') && (e.target.getAttribute('value') !== '=')) {
         displayValue = e.target.getAttribute('value');
-        display.textContent += displayValue;     
+        display.textContent += displayValue;
     };
     // Clear the Display ...
     if (displayValue === 'ac') {
@@ -57,11 +57,6 @@ buttons.forEach((button => {
 // Get Result ...
 equals.addEventListener('click', function () {
     b = Number(display.textContent);
-    console.log('*********************************************************************');
-    console.log(a);
-    console.log(b);
-    console.log(operator);
-    console.log('*********************************************************************');
     operate(a, b, operator);
 });
 
