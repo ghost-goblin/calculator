@@ -2,12 +2,12 @@ const buttons = document.querySelectorAll('button');
 const display = document.querySelector('.display');
 const clear = document.querySelector('.ac');
 const equals = document.querySelector('.equal-sign');
+const decimal = /^(\d*\.)?\d+$/g; // decimal regex
+
 
 const clearDisplay = () => {
     display.textContent = '';
 };
-
-
 
 // Operate Functions
 function add(a, b) {
@@ -32,12 +32,14 @@ buttons.forEach((button => {
 }));
 
 function calculate(e) {
-    if ((e.target.className !== 'operator') && (e.target.getAttribute('value') !== '=')) {
+    if ((e.target.className !== 'operator') 
+    && (e.target.getAttribute('value') !== '=')
+    && (display.textContent.length < 15)) {
         displayValue = e.target.getAttribute('value');
         display.textContent += displayValue;
     };
     // Clear the Display ...
-    if (displayValue === 'ac') {
+    if (e.target.className === 'ac') {
         clearDisplay();
     };
 };
