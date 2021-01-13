@@ -11,34 +11,37 @@
 <body>
   <div class="calculator">
 
-    <div class="display" value="0"></div>
+    <div class="output">
+      <div class="previous-operand" data-previous-operand></div>
+      <div class="current-operand" data-current-operand></div>
+    </div>
 
     <div class="calculator-keys">
 
-      <button type="button" class="operator" value="+">+</button>
-      <button type="button" class="operator" value="-">-</button>
-      <button type="button" class="operator" value="*">&times;</button>
-      <button type="button" class="operator" value="/">&divide;</button>
+      <button type="button" class="operator" data-operator value="+">+</button>
+      <button type="button" class="operator" data-operator value="-">-</button>
+      <button type="button" class="operator" data-operator value="*">&times;</button>
+      <button type="button" class="operator" data-operator value="/">&divide;</button>
 
-      <button type="button" value="7">7</button>
-      <button type="button" value="8">8</button>
-      <button type="button" value="9">9</button>
+      <button type="button" data-digit>7</button>
+      <button type="button" data-digit>8</button>
+      <button type="button" data-digit>9</button>
 
-      <button type="button" value="4">4</button>
-      <button type="button" value="5">5</button>
-      <button type="button" value="6">6</button>
-
-
-      <button type="button" value="1">1</button>
-      <button type="button" value="2">2</button>
-      <button type="button" value="3">3</button>
+      <button type="button" data-digit>4</button>
+      <button type="button" data-digit>5</button>
+      <button type="button" data-digit>6</button>
 
 
-      <button type="button" value="0">0</button>
-      <button type="button" class="decimal" value=".">.</button>
-      <button type="button" class="ac" value="ac">AC</button>
+      <button type="button" data-digit>1</button>
+      <button type="button" data-digit>2</button>
+      <button type="button" data-digit>3</button>
 
-      <button type="button" class="equal-sign operator" value="=">=</button>
+
+      <button type="button" data-digit>0</button>
+      <button type="button" class="decimal" data-digit>.</button>
+      <button type="button" class="ac" data-clear>AC</button>
+
+      <button type="button" class="equal-sign" value="=" data-equals>=</button>
 
     </div>
   </div>
