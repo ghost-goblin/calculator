@@ -1,7 +1,7 @@
 # 🧮 Calculator Project - [The Odin Project](https://www.theodinproject.com/courses/foundations/lessons/calculator)
 
 ## Initial Code
-
+My initial code was more _procedural_ based and while this worked on simple calculator, the functionality of the calculator is limited.
 
 ```js
 const buttons = document.querySelectorAll('button');
@@ -91,4 +91,26 @@ function operate(a, b, operator) {
     };
     console.log(result);
 };
+```
+
+## Object Oriented Programming
+What we need to do is to create a calculator template and assign it some properties and methods.
+You can read up up more on classes [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes).
+
+```js
+class Calculator {
+    constructor(previousValue, currentValue) {
+        this.previousValue = previousValue;
+        this.currentValue = currentValue;
+    };
+    clear() {
+
+    };
+    // some method functions here
+};
+
+// get the digit buttons
+const digitButtons = document.querySelector('[data-digit]');
+// create the new calculator ...
+const calculator = new Calculator(previousValue, currentValue);
 ```
